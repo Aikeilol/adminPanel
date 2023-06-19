@@ -1,16 +1,28 @@
 import { useHttp } from '../../hooks/http.hook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { createSelector } from 'reselect';
 import { heroesFetching, heroesFetched, heroesFetchingError, heroDelete } from '../../actions';
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
 
 const HeroesList = () => {
-  const { heroes, heroesLoadingStatus, activeFilter } = useSelector(state => state);
+  const activeFilterSelector = createSelector(
+    (state) => state.filters.activeFilter,
+    (state) => state.heroes.heroes,
+    (activeFilter, heroes) => {
+      if (activeFilter !== 'all') {
+        return heroes = heroes.filter(item => item.element === activeFilter)
+      }
+      return heroes
+    }
+  )
+  // const { activeFilter } = useSelector(state => state.filters);
+  const { heroesLoadingStatus, } = useSelector(state => state.heroes);
+  const filteredHeroes = useSelector(activeFilterSelector)
   const dispatch = useDispatch();
   const { request } = useHttp();
-
+  console.log(1)
   useEffect(() => {
     dispatch(heroesFetching());
     request("http://localhost:3001/heroes")
@@ -27,13 +39,13 @@ const HeroesList = () => {
   }
 
   const onHeroDelete = (id) => {
-    request(`http://localhost:3001/heroes/${id}`, 'DELETE').then(() => dispatch(heroDelete(heroes, id)))
+    request(`http://localhost:3001/heroes/${id}`, 'DELETE').then(() => dispatch(heroDelete(filteredHeroes, id)))
   }
 
   const renderHeroesList = (arr) => {
-    if (activeFilter !== 'all') {
-      arr = arr.filter(item => item.element === activeFilter)
-    }
+    // if (activeFilter !== 'all') {
+    //   arr = arr.filter(item => item.element === activeFilter)
+    // }
     if (arr.length === 0) {
       return <h5 className="text-center mt-5">Героев пока нет</h5>
     }
@@ -43,7 +55,7 @@ const HeroesList = () => {
     })
   }
 
-  const elements = renderHeroesList(heroes);
+  const elements = renderHeroesList(filteredHeroes);
   return (
     <ul>
       {elements}

@@ -11,8 +11,8 @@ const buttonCollors = {
 
 const HeroesFilters = () => {
     const dispatch = useDispatch()
-    const filters = useSelector(state => state.filters)
-    const activeFilter = useSelector(state => state.activeFilter)
+    const filters = useSelector(state => state.filters.filters)
+    const activeFilter = useSelector(state => state.filters.activeFilter)
 
     const onSetActiveFilter = (filterName) => {
         dispatch(filterActive(filterName))

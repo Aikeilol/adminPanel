@@ -12,7 +12,7 @@ const HeroesAddForm = () => {
 
     const { request } = useHttp()
     const dispatch = useDispatch()
-    const filters = useSelector(state => state.filters)
+    const filters = useSelector(state => state.filters.filters)
     const onSubmit = (e) => {
         e.preventDefault()
         const id = uuidv4()
