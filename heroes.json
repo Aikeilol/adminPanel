@@ -11,18 +11,6 @@
       "name": "Неизвестный герой",
       "description": "Скрывающийся в тени",
       "element": "wind"
-    },
-    {
-      "id": "129ff756-4128-40c6-aa56-d67eadd5c99e",
-      "name": "123",
-      "description": "123",
-      "element": "Я владею элементом..."
-    },
-    {
-      "id": "eb0b3a5a-693a-489a-8ac3-1f9d3d88dd3c",
-      "name": "213",
-      "description": "213",
-      "element": "fire"
     }
   ],
   "filters": [
