@@ -22,7 +22,6 @@ const HeroesList = () => {
   const filteredHeroes = useSelector(activeFilterSelector)
   const dispatch = useDispatch();
   const { request } = useHttp();
-  console.log(1)
   useEffect(() => {
     dispatch(heroesFetching());
     request("http://localhost:3001/heroes")
@@ -43,9 +42,7 @@ const HeroesList = () => {
   }
 
   const renderHeroesList = (arr) => {
-    // if (activeFilter !== 'all') {
-    //   arr = arr.filter(item => item.element === activeFilter)
-    // }
+
     if (arr.length === 0) {
       return <h5 className="text-center mt-5">Героев пока нет</h5>
     }

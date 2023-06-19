@@ -1,6 +1,6 @@
 const initialState = {
   heroes: [],
-  heroesLoadingStatus: 'idle',
+  heroesLoadingStatus: 'loading',
 }
 
 const heroes = (state = initialState, action) => {
