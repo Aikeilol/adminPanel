@@ -29,7 +29,7 @@ const HeroesAddForm = () => {
             })
             .catch(() => dispatch(heroesFetchingError()))
     }
-    
+
     return (
         <form onSubmit={onSubmit} className="border p-4 shadow-lg rounded">
             <div className="mb-3">
@@ -64,7 +64,7 @@ const HeroesAddForm = () => {
                     className="form-select"
                     id="element"
                     name="element"
-                    onChange={(e) => setElement(e.target.value)} 
+                    onChange={(e) => setElement(e.target.value)}
                     value={element}>
                     {filters.map(filter => {
                         return <option key={filter} value={filter}>{filter}</option>
