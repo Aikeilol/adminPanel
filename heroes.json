@@ -11,6 +11,12 @@
       "name": "Неизвестный герой",
       "description": "Скрывающийся в тени",
       "element": "wind"
+    },
+    {
+      "id": "2c9fc267-0df8-4e66-b187-bbbd5a572b02",
+      "name": "Vadim",
+      "description": "123",
+      "element": "wind"
     }
   ],
   "filters": [
