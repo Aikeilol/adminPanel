@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useHttp } from '../../hooks/http.hook';
 import { useDispatch, useSelector } from 'react-redux';
-import { heroesFetched, heroesFetchingError } from '../heroesList/heroesSlice';
+import { fetchHeroes } from '../heroesList/heroesSlice';
 
 
 const HeroesAddForm = () => {
@@ -25,9 +25,8 @@ const HeroesAddForm = () => {
 
         request(`http://localhost:3001/heroes`, 'POST', JSON.stringify(heroData))
             .then(() => {
-                request("http://localhost:3001/heroes").then(data => dispatch(heroesFetched(data)))
+                dispatch(fetchHeroes())
             })
-            .catch(() => dispatch(heroesFetchingError()))
     }
 
     return (

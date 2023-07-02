@@ -1,11 +1,10 @@
 import { useHttp } from '../../hooks/http.hook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createSelector } from 'reselect';
-import { heroDelete } from './heroesSlice';
+import { createSelector } from '@reduxjs/toolkit';
+import { heroDelete, fetchHeroes } from './heroesSlice';
 import HeroesListItem from "../heroesListItem/HeroesListItem";
 import Spinner from '../spinner/Spinner';
-import { fetchHeroes } from '../../actions';
 
 const HeroesList = () => {
   const activeFilterSelector = createSelector(
@@ -24,7 +23,7 @@ const HeroesList = () => {
   const dispatch = useDispatch();
   const { request } = useHttp();
   useEffect(() => {
-    dispatch(fetchHeroes(request));
+    dispatch(fetchHeroes());
     // eslint-disable-next-line
   }, []);
 
@@ -35,7 +34,7 @@ const HeroesList = () => {
   }
 
   const onHeroDelete = (id) => {
-    request(`http://localhost:3001/heroes/${id}`, 'DELETE').then(() => dispatch(heroDelete(filteredHeroes, id)))
+    request(`http://localhost:3001/heroes/${id}`, 'DELETE').then(() => dispatch(heroDelete(id)))
   }
 
   const renderHeroesList = (arr) => {
