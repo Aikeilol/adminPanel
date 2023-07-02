@@ -42,16 +42,16 @@ export const fetchHeroes = (request) => (dispatch) => {
 //     }
 // })
 
-export const filtersFetched = (filters) => {
-    return {
-        type: 'FILTERS_FETCHED',
-        payload: filters,
-    }
-}
+// export const filtersFetched = (filters) => {
+//     return {
+//         type: 'FILTERS_FETCHED',
+//         payload: filters,
+//     }
+// }
 
-export const filterActive = (filterName) => {
-    return {
-        type: 'FILTER_ACTIVE',
-        payload: filterName,
-    }
-}
+// export const filterActive = (filterName) => {
+//     return {
+//         type: 'FILTER_ACTIVE',
+//         payload: filterName,
+//     }
+// }
