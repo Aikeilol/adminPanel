@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { filterActive } from '../../actions';
+import { filterActive } from './filtersSlice';
 
 const buttonCollors = {
     all: 'btn-outline-dark',
