@@ -1,28 +1,28 @@
-import { createReducer } from "@reduxjs/toolkit"
-import { heroesFetching, heroesFetched, heroesFetchingError, heroDelete, } from "../actions"
+// import { createReducer } from "@reduxjs/toolkit"
+// import { heroesFetching, heroesFetched, heroesFetchingError, heroDelete, } from "../actions"
 
-const initialState = {
-    heroes: [],
-    heroesLoadingStatus: 'loading',
-}
+// const initialState = {
+//     heroes: [],
+//     heroesLoadingStatus: 'loading',
+// }
 
-const heroes = createReducer(initialState, (builder) => {
-    builder
-        .addCase(heroesFetching, state => {
-            state.heroesLoadingStatus = 'loading';
-        })
-        .addCase(heroesFetched, (state, action) => {
-            state.heroesLoadingStatus = 'idle'
-            state.heroes = action.payload
-        })
-        .addCase(heroesFetchingError, (state) => {
-            state.heroesLoadingStatus = 'error'
-        })
-        .addCase(heroDelete, (state, action) => {
-            state.heroes = action.payload
-        })
-        .addDefaultCase(() => {});
-})
+// const heroes = createReducer(initialState, (builder) => {
+//     builder
+//         .addCase(heroesFetching, state => {
+//             state.heroesLoadingStatus = 'loading';
+//         })
+//         .addCase(heroesFetched, (state, action) => {
+//             state.heroesLoadingStatus = 'idle'
+//             state.heroes = action.payload
+//         })
+//         .addCase(heroesFetchingError, (state) => {
+//             state.heroesLoadingStatus = 'error'
+//         })
+//         .addCase(heroDelete, (state, action) => {
+//             state.heroes = action.payload
+//         })
+//         .addDefaultCase(() => {});
+// })
 
 // const heroes = (state = initialState, action) => {
 //     switch (action.type) {
@@ -51,4 +51,4 @@ const heroes = createReducer(initialState, (builder) => {
 //     }
 // }
 
-export default heroes;
+// export default heroes;

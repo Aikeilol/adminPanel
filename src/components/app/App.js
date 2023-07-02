@@ -3,7 +3,7 @@ import HeroesAddForm from '../heroesAddForm/HeroesAddForm';
 import HeroesFilters from '../heroesFilters/HeroesFilters';
 import { useHttp } from '../../hooks/http.hook';
 import { useDispatch } from 'react-redux';
-import { filtersFetched } from '../../actions';
+import { filtersFetched } from '../heroesFilters/filtersSlice';
 import { useEffect } from 'react';
 
 import './app.scss';
